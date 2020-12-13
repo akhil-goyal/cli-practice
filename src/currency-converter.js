@@ -24,9 +24,18 @@ var targetCurrency = process.argv[4];
 
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
-
-
-
+if (amount === undefined || initialCurrency === undefined || targetCurrency === undefined) {
+    if ( amount === undefined) {
+        console.log('The amount to be converted is missing!');
+        process.exit();
+    } else if (initialCurrency === undefined) {
+        console.log('The initial currency is missing!');
+        process.exit();
+    } else {
+        console.log('The targeted currency is missing!');
+        process.exit();
+    }
+}
 // --------------------------------------------------
 // Step 3: Define currency conversion rates
 // --------------------------------------------------
