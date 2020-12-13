@@ -25,7 +25,7 @@ var targetCurrency = process.argv[4];
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
 if (amount === undefined || initialCurrency === undefined || targetCurrency === undefined) {
-    if ( amount === undefined) {
+    if (amount === undefined) {
         console.log('The amount to be converted is missing!');
         process.exit();
     } else if (initialCurrency === undefined) {
@@ -63,9 +63,15 @@ var rates = {
 
 // If the user supplies an invalid initial or target currency, display a meaningful
 // warning message and exit the program.
+if (rates[initialCurrency] === undefined) {
+    console.log('Initial currency is invalid!', initialCurrency);
+    process.exit();
+}
 
-
-
+if (rates[initialCurrency] !== undefined && rates[initialCurrency][targetCurrency] === undefined) {
+    console.log('Target currency is invalid!', targetCurrency);
+    process.exit();
+}
 // --------------------------------------------------
 // Step 5: Perform conversion
 // --------------------------------------------------
