@@ -1,4 +1,5 @@
 var { validateUserInput } = require('./validate-user-input');
+var { validateCurrency } = require('./validate-curency');
 // This file will contain the primary logic for the currency conversion program.
 // To run the program use the `node` command followed by the name of this file.
 // ie. `node currency-converter.js`.
@@ -53,15 +54,7 @@ var rates = {
 
 // If the user supplies an invalid initial or target currency, display a meaningful
 // warning message and exit the program.
-if (rates[initialCurrency] === undefined) {
-    console.log('Initial currency is invalid!', initialCurrency);
-    process.exit();
-}
-
-if (rates[initialCurrency] !== undefined && rates[initialCurrency][targetCurrency] === undefined) {
-    console.log('Target currency is invalid!', targetCurrency);
-    process.exit();
-}
+validateCurrency(rates, initialCurrency, targetCurrency);
 // --------------------------------------------------
 // Step 5: Perform conversion
 // --------------------------------------------------
