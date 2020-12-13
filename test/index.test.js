@@ -1,3 +1,4 @@
+var { getRate } = require('./../src/get-rate');
 // This file will contain tests for the program. The purpose of these tests is to
 // ensure that the core program logic works as expected.
 
@@ -9,15 +10,24 @@
 // of the function. In most cases the subject of a test will be defined in a separate
 // file. In this case we've defined the function and the corresponding test in the
 // same file for illustrative and learning purposes.
-
-function myCoolFunction() {
-  return 'Wow, what a cool function';
+var rates = {
+  USD: {
+    CAD: 2,
+  },
+  CAD: {
+    USD: 0.5
+  }
 }
 
-describe('myCoolFunction()', () => {
-  test('should return the message: "Wow, what a cool function"', () => {
-    const result = myCoolFunction();
+describe('Function : getRate()', () => {
 
-    expect(result).toBe('Wow, what a cool function');
+  test(`It should return the conversion rate for CAD to USD`, () => {
+
+    initialCurrency = 'CAD';
+    targetCurrency = 'USD';
+
+    expect(getRate(rates, initialCurrency, targetCurrency)).toBe(0.5);
+
   });
-});
+
+})
