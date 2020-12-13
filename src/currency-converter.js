@@ -89,3 +89,4 @@ var result = amount * rate;
 
 // This message should also include the original amount and currency information
 // supplied by the user.
+console.log(`The conversion of ${amount} ${initialCurrency} to ${targetCurrency} amounts to ${result} at a conversion rate of ${rate}.`);
