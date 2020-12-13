@@ -30,4 +30,13 @@ describe('Function : getRate()', () => {
 
   });
 
+  test(`It should return the conversion rate for USD to CAD`, () => {
+
+    initialCurrency = 'USD';
+    targetCurrency = 'CAD';
+
+    expect(getRate(rates, initialCurrency, targetCurrency)).toBe(2);
+
+  });
+
 })
