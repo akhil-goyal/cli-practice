@@ -47,9 +47,14 @@ if (amount === undefined || initialCurrency === undefined || targetCurrency === 
 
 // The conversion rates do not have to be accurate, athough this resource contains
 // up-to-date rate information: https://www.xe.com/
-
-
-
+var rates = {
+    USD: {
+        CAD: 2,
+    },
+    CAD: {
+        USD: 0.5
+    }
+}
 // --------------------------------------------------
 // Step 4: Ensure that a conversion rate exists
 // --------------------------------------------------
