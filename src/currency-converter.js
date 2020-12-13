@@ -1,5 +1,6 @@
 var { validateUserInput } = require('./validate-user-input');
 var { validateCurrency } = require('./validate-curency');
+var { getRate } = require('./get-rate');
 // This file will contain the primary logic for the currency conversion program.
 // To run the program use the `node` command followed by the name of this file.
 // ie. `node currency-converter.js`.
@@ -62,7 +63,7 @@ validateCurrency(rates, initialCurrency, targetCurrency);
 // information, and that a rate exists for each of the currencies.
 
 // Now we will compute the rate, apply it to the amount, and capture the result.
-var rate = rates[initialCurrency][targetCurrency];
+var rate = getRate(rates, initialCurrency, targetCurrency);
 
 var result = amount * rate;
 // --------------------------------------------------
